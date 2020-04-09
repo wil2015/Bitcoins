@@ -49,13 +49,14 @@ class AccountController extends Controller
             $value      = $request -> input('value');
             $account    =  new CurrentAccount($id);
             $balance    = $account -> balance_inquiry();
+            $token = $this ->token;
 
             if ($value > $balance) {
 
                 $errors = [];
                 $errors[] = 'Sem saldo';
                 $value = $balance;
-                return view('account.withdrawl')->with(compact('value','errors'));
+                return view('account.withdrawl')->with(compact('value','errors','id', 'token'));
 
             } else  {
                 
