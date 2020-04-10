@@ -10,7 +10,7 @@
   </header>
 
 <div>
-<table class="table table-striped">
+<table id="example" class="table table-striped">
   <thead>
     <tr>
       <th scope="col">#</th>
@@ -33,3 +33,15 @@
 </div>
 
 @endsection
+
+@push('scripts')
+
+<script type="text/javascript">
+
+$(document).ready(function() {
+    $('#example').DataTable();
+} );
+
+</script> 
+
+@endpush

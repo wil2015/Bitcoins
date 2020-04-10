@@ -10,7 +10,7 @@
   </header>
 
 <div>
-<table id="example" class="table table-striped">
+<table id='users-table' class="table table-striped">
   <thead>
     <tr>
       <th scope="col">#</th>
@@ -42,14 +42,35 @@
 </div>
 
 @endsection
+   
+
 @push('scripts')
-
-<script type="text/javascript">
-
+<script>
 $(document).ready(function() {
-    $('#example').DataTable();
-} );
+    var table = $('#users-table').DataTable( {
+      //  "ajax": "{!! route('datatables.data') !!}",
+        "ajax": "{!! route('datatables'.?.'token='.$token,[id => $id]) !!}",
+        "columns": [
+            {
+                "className":      'details-control',
+                "orderable":      false,
+                "data":           null,
+                "defaultContent": ''
+            },
+            { data: 'id', name: 'id' },
+            { data: 'operation', name: 'operation' },
+            { data: 'value', name: 'value' }
+            { data: 'amount', name: 'amount' }
+            { data: 'quote', name: 'quote' }
+            { data: 'data', name: 'data' }
+            { data: 'variation', name: 'variation' }
+            { data: 'resultado', name: 'resultado' }
 
-</script> 
 
+          
+        ],
+        "order": [[1, 'asc']]
+    } );
+
+</script>
 @endpush

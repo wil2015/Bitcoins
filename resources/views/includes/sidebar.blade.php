@@ -20,4 +20,8 @@
   <li class="nav-item">
     <a class="nav-link" href="/bitcoin/historic/{{$id}}?token={{$token}}">Extrato Bitcoin</a>
   </li>
+
+  <li class="nav-item">
+    <a class="nav-link" href="/extract/bitcoin/show/{{$id}}?token={{$token}}">Extrato json Bitcoin</a>
+  </li>
 </ul>

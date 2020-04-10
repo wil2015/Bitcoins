@@ -32,6 +32,13 @@ $router->get('bitcoin/price/{id}', 'bitcoinControlere@price');
 $router->get('bitcoin/historic/{id}', 'InvestmentController@moviment');
 
 
+//$router->get('extract/account/show/{id}', 'ExtractController@account');
+$router->get('extract/bitcoin/show/{id}', 'ExtractController@showbitcoin');
+$router->get('extract/bitcoin/json/{id}', ['as' => 'jsonb', 'uses' => 'ExtractController@jsonbitcoin']);
+
+
+
+
 $router->get('user/{id}', 'teste@show');
 
 // API route group
