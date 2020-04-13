@@ -17,7 +17,7 @@ class WelcomeEmail extends Mailable
      *
      * @return void
      */
-    public function __construct(User $user)
+    public function __construct($user)
     {
         //
         $this->user = $user;
@@ -31,7 +31,7 @@ class WelcomeEmail extends Mailable
     public function build()
     {
 
-        return $this->markdown('emails.created.welcome')
+        return $this->markdown('email.created.welcome')
                     ->subject('Boas Vindas!!!')
                     ->with([
                         'user' => $this->user,

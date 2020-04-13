@@ -6,6 +6,8 @@
 namespace App\Http\Management;
 use App\Investment;
 use App\User;
+use Illuminate\Support\Facades\DB;
+use DateTime;
 
 
 
@@ -71,4 +73,50 @@ class HistoricInvestment
 
 
 	}
+
+	public static function totalofday($user_id){
+
+		$date = date("Y-m-d");
+
+		$totalbuy = DB::table('investments')
+			->where('user_id','=', $user_id)
+    		->where('operation', '=', 'C') 
+	   		->whereDate('created_at', date('Y-m-d'))
+
+			->sum('amountofbitcoin');
+
+		$totalsaler = DB::table('investments')
+    		->where('user_id','=', $user_id)
+    		->where('operation', '=', 'D') 
+    		->whereDate('created_at', date('Y-m-d'))
+			->sum('amountofbitcoin');
+
+		$total = ['buy' => $totalbuy, 'saler' => $totalsaler];
+
+		return $total;
+
+	}
+
+	public static function clear(){
+
+		$now = new DateTime;
+		$pass = $now->modify('-90 day'); 
+		$deleta =  $pass->format('Y-m-d');
+
+		DB::table('investments')->whereDate('created_at', '<=', $deleta)->delete();
+
+	} 
 }
+
+//$tt = HistoricInvestment::totalofday(2);
+//print_r($tt);
+//$tt = HistoricInvestment::clear();
+//print_r($tt);
+/*
+$users = DB::table('users')->where([
+    ['status', '=', '1'],
+    ['subscribed', '<>', '1'],
+])->get();
+
+DB::table('users')->where('votes', '>', 100)->delete();
+*/

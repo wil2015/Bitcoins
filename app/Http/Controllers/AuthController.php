@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\WelcomeEmail;
 use  App\User;
 
 class AuthController extends Controller
@@ -25,18 +27,20 @@ class AuthController extends Controller
 
         try {
            
-            $user = new User;
-            $user->name = $request->input('name');
-            $user->email = $request->input('email');
-            $plainPassword = $request->input('password');
+            $user           = new User;
+            $user->name     = $request->input('name');
+            $user->email    = $request->input('email');
+            $plainPassword  = $request->input('password');
             $user->password = app('hash')->make($plainPassword);
 
             $user->save();
 
+            Mail::to($user->email)
+                ->send(new WelcomeEmail($user->name));
             //return successful response
             $errors = [];
-                $errors[] = 'Usuario Cadastrado';
-                return view('auth.login')->with(compact('errors'));
+            $errors[] = 'Usuario Cadastrado';
+            return view('auth.login')->with(compact('errors'));
 
             return response()->json(['user' => $user, 'message' => 'CREATED'], 201);
 

@@ -1,6 +1,10 @@
 <?php
 
 namespace App\Jobs;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\WelcomeEmail;
+
+
 
 class SendWelcomeEmail extends Job
 {

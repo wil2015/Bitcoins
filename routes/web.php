@@ -37,6 +37,7 @@ $router->get('extract/bitcoin/show/{id}', 'ExtractController@showbitcoin');
 $router->get('extract/bitcoin/json/{id}', ['as' => 'jsonb', 'uses' => 'ExtractController@jsonbitcoin']);
 
 
+$router->get('/job','sampleController@test_queue');
 
 
 $router->get('user/{id}', 'teste@show');

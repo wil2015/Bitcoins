@@ -82,5 +82,6 @@ class AccountBitcoin
 		return $amount;
 	}
 
+	
 }
 

@@ -27,6 +27,15 @@ $app = new Laravel\Lumen\Application(
 
  $app->withEloquent();
 
+ $app->configure('queue');
+
+$app->configure('mail');
+$app->alias('mailer', Illuminate\Mail\Mailer::class);	
+$app->alias('mailer', Illuminate\Contracts\Mail\Mailer::class);
+$app->alias('mailer', Illuminate\Contracts\Mail\MailQueue::class);
+$app->register(Illuminate\Mail\MailServiceProvider::class);
+
+
 /*
 |--------------------------------------------------------------------------
 | Register Container Bindings
