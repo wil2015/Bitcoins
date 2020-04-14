@@ -3,34 +3,26 @@
 <head>
     @include('includes.head')
 </head>
-<body>
-    <nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-   
-    <ul class="nav navbar-nav navbar-right">
-      <li><a href="/logout"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
-    </ul>
-  </div>
-</nav>
+
+
+    @include('includes.navbar')
+
+    <span></span>
+
 <div class="container">
 
-    <header class="row">
-        @include('includes.header')
-    </header>
+    <div class="row">
 
-    <div id="main" class="row container-fluid">
+        @include('includes.sidebar2')
+    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2"></h1>
+      
+      </div>
+                  @yield('content')
 
-        <!-- sidebar content -->
-        <div id="sidebar" class="col-sl-2 col-md-2">
-            @include('includes.sidebar')
-        </div>
-
-        <!-- main content -->
-        <div id="content" class="col-sl-10 col-md-10">
-            @yield('content')
-        </div>
-
-    </div>
+    </main>  
+   
 
     <footer class="row">
 {{-- @include('includes.footer') --}}

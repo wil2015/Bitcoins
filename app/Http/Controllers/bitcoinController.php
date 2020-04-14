@@ -133,18 +133,22 @@ class bitcoinController extends Controller
         $account    = new CurrentAccount($id); 
         $account -> deposit($value);        // adiciona o valor vendido na conta corrente 
         $bitcoin -> sale($qtd, $salequote, $value);             // subtrai a quantidade dos bitcoins 
+
+
+        Mail::to($this->email)
+                ->send(new InvestmentEmail($value, $amount, 'Venda', $salequote));
+
+
         $balance    = $account ->balance_inquiry(); // recupera o valor real 
         $amount     = $bitcoin -> amount_inquiry(); // recupera a quantidade atualizada de bitcoins
         $token      = $this -> token;
 
-        Mail::to($this->email)
-                ->send(new InvestmentEmail($value, $amount, 'Venda', $salequote));
 
         $total          = HistoricInvestment::totalofday($id);
         $amountbuy      = $total['buy'];
         $amountsaler    = $total['saler'];  
         
-
+        $this->showsale($id);
         return view('bitcoin.sale')
                 ->with(compact('amount', 'balance', 'id', 'token', 'purchasequote', 'salequote', 
                     'amountbuy', 'amountsaler'));  
