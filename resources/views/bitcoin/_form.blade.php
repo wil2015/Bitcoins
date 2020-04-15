@@ -5,7 +5,7 @@
       <input type="text" name="balance" class="form-control" value={{$balance}} readonly >
     </div>
     <div class="col-3">
-    <label for="exampleFormControlFile1">Quantidade de Bitcoins</label>
+    <label for="exampleFormControlFile1">Quant. de Bitcoins</label>
 
       <input type="text" name="amount" class="form-control" value="{{$amount}}" readonly >
     </div>
@@ -19,7 +19,7 @@
               <br>
 
       <button role="submit" class="btn btn-primary btn-md">
-        <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> {{ $buttonText }}
+         {{ $buttonText }}
       </button>
     </div>
   </div>

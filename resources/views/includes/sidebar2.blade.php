@@ -1,38 +1,36 @@
 
-<br>
-<br>
-<br>
 
 <nav class="col-md-2 d-none d-md-block bg-light sidebar">
       <div class="sidebar-sticky">
         <ul class="nav flex-column">
-          <li class="nav-item">
-            <a class="nav-link active" href="#">
-              <span data-feather="home"></span>
-              Dashboard <span class="sr-only">(current)</span>
-            </a>
-          </li>
+
            <li class="nav-item">
-             <a class="nav-link active" href="/account/deposit/show/{{$id}}?token={{$token}}">Deposito</a>
+             <a class="nav-link active" href="/account/deposit/show/{{$id}}?token={{$token}}">
+              <i class="fa fa-money" aria-hidden="true"></i> Deposito</a>
           </li>
           <li class="nav-item">
-                  <a class="nav-link" href="/account/withdrawal/show/{{$id}}?token={{$token}}">Retirada</a>
+                  <a class="nav-link" href="/account/withdrawal/show/{{$id}}?token={{$token}}">
+                      <i class="fa fa-money" aria-hidden="true"></i> Retirada</a>
             
           </li>
           <li class="nav-item">
-                <a class="nav-link" href="/bitcoin/purchase/show/{{$id}}?token={{$token}}">Compra Bitcoin</a>
+                <a class="nav-link" href="/bitcoin/purchase/show/{{$id}}?token={{$token}}">
+                 <i class="fa fa-btc" aria-hidden="true"></i> Compra Bitcoin</a>
           
           </li>
           <li class="nav-item">
-                <a class="nav-link" href="/bitcoin/sale/show/{{$id}}?token={{$token}}">Venda Bitcoin</a>
+                <a class="nav-link" href="/bitcoin/sale/show/{{$id}}?token={{$token}}">
+              <i class="fa fa-btc" aria-hidden="true"></i> Venda Bitcoin</a>
 
           </li>
           <li class="nav-item">
-              <a class="nav-link" href="/historic/list/{{$id}}?token={{$token}}">Extrato Conta</a>
+              <a class="nav-link" href="/historic/list/{{$id}}?token={{$token}}">
+              <i class="fa fa-list" aria-hidden="true"></i> Extrato Conta</a>
 
           </li>
           <li class="nav-item">
-                <a class="nav-link" href="/bitcoin/historic/{{$id}}?token={{$token}}">Extrato Bitcoin</a>
+                <a class="nav-link" href="/bitcoin/historic/{{$id}}?token={{$token}}">
+                 <i class="fa fa-list" aria-hidden="true"></i> Extrato Bitcoin</a>
            
           </li>
         </ul>

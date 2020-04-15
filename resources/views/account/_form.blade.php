@@ -15,7 +15,7 @@
 
 
     <button role="submit" class="btn btn-primary btn-md">
-      <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> {{ $buttonText }}
+      {{ $buttonText }}
     </button>
   </div>
   </div>
