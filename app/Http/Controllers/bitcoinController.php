@@ -133,6 +133,7 @@ class bitcoinController extends Controller
         $account    = new CurrentAccount($id); 
         $account -> deposit($value);        // adiciona o valor vendido na conta corrente 
         $bitcoin -> sale($qtd, $salequote, $value);             // subtrai a quantidade dos bitcoins 
+        $amount = $bitcoin->amount_inquiry();                               //recupera qtd atualiza para view 
 
 
         Mail::to($this->email)
